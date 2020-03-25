@@ -1,0 +1,10 @@
+{
+  "${ModID}:DivineProtection": {
+    "NAME": "Snecko's Protection",
+    "DESCRIPTIONS": [
+      "Can only lose #b%d more HP this turn.",
+      "Can no longer be harmed this turn.",
+      " NL Removed when %s dies."
+    ]
+  }
+}
