@@ -20,11 +20,12 @@ class Pentaghost {
         clz = Hexaghost::class,
         method = SpirePatch.CONSTRUCTOR
     )
-    class Name {
+    class NameAndInfernoHits {
         companion object {
             @JvmStatic
             fun Postfix(__instance: Hexaghost) {
                 __instance.name = CardCrawlGame.languagePack.getMonsterStrings(HumilityMod.makeID(Hexaghost.ID)).NAME
+                ReflectionHacks.setPrivate(__instance, Hexaghost::class.java, "infernoHits", 5)
             }
         }
     }
