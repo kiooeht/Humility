@@ -4,6 +4,7 @@ import basemod.BaseMod
 import basemod.ModPanel
 import basemod.interfaces.EditStringsSubscriber
 import basemod.interfaces.PostInitializeSubscriber
+import com.evacipated.cardcrawl.mod.humilty.helpers.AssetLoader
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.helpers.ImageMaster
@@ -18,7 +19,7 @@ class HumilityMod :
         val ID: String
         val NAME: String
 
-        //val assets = AssetLoader()
+        val assets = AssetLoader()
 
         init {
             var tmpID = "humility"
