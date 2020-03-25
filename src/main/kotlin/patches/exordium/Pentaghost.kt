@@ -1,8 +1,8 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 
+import basemod.ReflectionHacks
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
+import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost
 import com.megacrit.cardcrawl.monsters.exordium.HexaghostOrb
@@ -93,6 +93,36 @@ class Pentaghost {
             fun Postfix(__instance: Hexaghost) {
                 __instance.createIntent()
                 __instance.takeTurn()
+            }
+        }
+    }
+
+    @SpirePatch(
+        clz = Hexaghost::class,
+        method = "changeState"
+    )
+    class SkipOrbCycle {
+        companion object {
+            @JvmStatic
+            @SpireInsertPatch(
+                locator = Locator::class
+            )
+            fun Insert(__instance: Hexaghost, stateName: String, ___orbActiveCount: Int) {
+                if (___orbActiveCount == 5) {
+                    ReflectionHacks.setPrivate(__instance, Hexaghost::class.java, "orbActiveCount", 6)
+                }
+            }
+        }
+
+        private class Locator : SpireInsertLocator() {
+            override fun Locate(ctBehavior: CtBehavior?): IntArray {
+                val finalMatcher = Matcher.FieldAccessMatcher(Hexaghost::class.java, "orbActiveCount")
+                val matchers = listOf<Matcher>(
+                    finalMatcher,
+                    finalMatcher,
+                    finalMatcher
+                )
+                return LineFinder.findInOrder(ctBehavior, matchers, finalMatcher)
             }
         }
     }
