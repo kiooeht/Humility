@@ -1,15 +1,15 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.city
 
+import com.evacipated.cardcrawl.mod.humilty.powers.BurningStabsPower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
-import com.megacrit.cardcrawl.cards.status.Burn
-import com.megacrit.cardcrawl.cards.status.Wound
+import com.megacrit.cardcrawl.monsters.city.BookOfStabbing
 import com.megacrit.cardcrawl.powers.PainfulStabsPower
 import javassist.expr.ExprEditor
 import javassist.expr.NewExpr
 
 @SpirePatch(
-    clz = PainfulStabsPower::class,
-    method = "onInflictDamage"
+    clz = BookOfStabbing::class,
+    method = "usePreBattleAction"
 )
 class BookOfStabbingBurns {
     companion object {
@@ -17,8 +17,8 @@ class BookOfStabbingBurns {
         fun Instrument(): ExprEditor =
             object : ExprEditor() {
                 override fun edit(e: NewExpr) {
-                    if (e.className == Wound::class.qualifiedName) {
-                        e.replace("\$_ = new ${Burn::class.qualifiedName}();")
+                    if (e.className == PainfulStabsPower::class.qualifiedName) {
+                        e.replace("\$_ = new ${BurningStabsPower::class.qualifiedName}(\$\$);")
                     }
                 }
             }

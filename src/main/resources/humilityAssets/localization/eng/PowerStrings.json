@@ -14,7 +14,7 @@
       "'s current HP."
     ]
   },
-  "Painful Stabs": {
+  "${ModID}:BurningStabs": {
     "NAME": "Burning Stabs",
     "DESCRIPTIONS": [
       "Whenever you receive attack damage from this enemy, add a #yBurn into your discard pile."
