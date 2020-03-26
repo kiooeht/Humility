@@ -1,6 +1,5 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 
-import basemod.ReflectionHacks
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.core.CardCrawlGame
@@ -23,9 +22,9 @@ class Pentaghost {
     class NameAndInfernoHits {
         companion object {
             @JvmStatic
-            fun Postfix(__instance: Hexaghost) {
+            fun Postfix(__instance: Hexaghost, @ByRef ___infernoHits: Array<Int>) {
                 __instance.name = CardCrawlGame.languagePack.getMonsterStrings(HumilityMod.makeID(Hexaghost.ID)).NAME
-                ReflectionHacks.setPrivate(__instance, Hexaghost::class.java, "infernoHits", 5)
+                ___infernoHits[0] = 5
             }
         }
     }
@@ -109,9 +108,9 @@ class Pentaghost {
             @SpireInsertPatch(
                 locator = Locator::class
             )
-            fun Insert(__instance: Hexaghost, stateName: String, ___orbActiveCount: Int) {
-                if (___orbActiveCount == 5) {
-                    ReflectionHacks.setPrivate(__instance, Hexaghost::class.java, "orbActiveCount", 6)
+            fun Insert(__instance: Hexaghost, stateName: String, @ByRef ___orbActiveCount: Array<Int>) {
+                if (___orbActiveCount[0] == 5) {
+                    ___orbActiveCount[0] = 6
                 }
             }
         }

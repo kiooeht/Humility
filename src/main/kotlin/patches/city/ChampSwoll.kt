@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.city
 
 import basemod.ReflectionHacks
+import com.evacipated.cardcrawl.modthespire.lib.ByRef
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -55,8 +56,8 @@ class ChampSwoll {
     class BuffStrengthGain {
         companion object {
             @JvmStatic
-            fun Postfix(__instance: Champ, ___strAmt: Int) {
-                ReflectionHacks.setPrivate(__instance, Champ::class.java, "strAmt", ___strAmt + 1)
+            fun Postfix(__instance: Champ, @ByRef ___strAmt: Array<Int>) {
+                ___strAmt[0] += 1
             }
         }
     }
