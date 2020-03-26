@@ -58,13 +58,14 @@ class Pentaghost {
             fun Raw(ctBehavior: CtBehavior) {
                 ctBehavior.instrument(object : CodeConverter() {
                     init {
-                        transformers = TransformBipush6To5(transformers)
+                        transformers = TransformBipush(transformers, 6, 5)
+                        transformers = TransformBipush(transformers, 12, 10)
                     }
                 })
             }
         }
 
-        class TransformBipush6To5(next: Transformer?) : Transformer(next) {
+        class TransformBipush(next: Transformer?, private val from: Int, private val to: Int) : Transformer(next) {
             var codeAttr: CodeAttribute? = null
 
             override fun initialize(cp: ConstPool?, attr: CodeAttribute?) {
@@ -75,8 +76,8 @@ class Pentaghost {
                 val c = iterator.byteAt(pos)
                 if (c == Opcode.BIPUSH) {
                     val v = iterator.byteAt(pos + 1)
-                    if (v == 6) {
-                        iterator.writeByte(5, pos + 1)
+                    if (v == from) {
+                        iterator.writeByte(to, pos + 1)
                     }
                 }
                 return pos
