@@ -47,4 +47,17 @@ class ChampSwoll {
             }
         }
     }
+
+    @SpirePatch(
+        clz = Champ::class,
+        method = SpirePatch.CONSTRUCTOR
+    )
+    class BuffStrengthGain {
+        companion object {
+            @JvmStatic
+            fun Postfix(__instance: Champ, ___strAmt: Int) {
+                ReflectionHacks.setPrivate(__instance, Champ::class.java, "strAmt", ___strAmt + 1)
+            }
+        }
+    }
 }
