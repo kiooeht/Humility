@@ -25,5 +25,12 @@
     "DESCRIPTIONS": [
       "Whenever you receive attack damage from this enemy, add a #yWound into your discard pile."
     ]
+  },
+  "${ModID}:SneckoBot": {
+    "NAME": "Snecko Bot",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, chooses a random number from #b0 to #b3. If the number is equal to the cost of the card played, gains #b",
+      " #yStrength."
+    ]
   }
 }
