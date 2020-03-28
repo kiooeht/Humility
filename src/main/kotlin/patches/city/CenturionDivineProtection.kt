@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.city
 
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.addPreBattleAction
 import com.evacipated.cardcrawl.mod.humilty.powers.DivineProtectionPower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -9,9 +10,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.actions.utility.WaitAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.city.Healer
-import javassist.CannotCompileException
 import javassist.CtBehavior
-import javassist.CtNewMethod
 
 class CenturionDivineProtection {
     companion object {
@@ -28,20 +27,7 @@ class CenturionDivineProtection {
 
             @JvmStatic
             fun Raw(ctBehavior: CtBehavior) {
-                val ctClass = ctBehavior.declaringClass
-                val pool = ctClass.classPool
-                var method = CtNewMethod.make(
-                    "void usePreBattleAction() {}",
-                    ctClass
-                )
-                try {
-                    ctClass.addMethod(method)
-                } catch (e: CannotCompileException) {
-                    e.printStackTrace()
-                    method = ctClass.getDeclaredMethod("usePreBattleAction")
-                }
-
-                method.insertBefore("${Add::class.qualifiedName}.doPreBattleAction(this);")
+                ctBehavior.addPreBattleAction(::doPreBattleAction)
             }
 
             @JvmStatic
