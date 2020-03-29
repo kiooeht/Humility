@@ -32,5 +32,12 @@
       "Whenever you play a card, chooses a random number from #b0 to #b3. If the number is equal to the cost of the card played, gains #b",
       " #yStrength."
     ]
+  },
+  "${ModID}:ExplodingSporeCloud": {
+    "NAME": "Exploding Spore Cloud",
+    "DESCRIPTIONS": [
+      "In #b%2$d turns, applies #b%1$d #yVulnerable. NL On death, applies #b%1$d #yVulnerable.",
+      "On death, applies #b%1$d #yVulnerable."
+    ]
   }
 }
