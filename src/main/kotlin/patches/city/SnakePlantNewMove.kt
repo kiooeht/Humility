@@ -1,5 +1,8 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.city
 
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.isFirstMove
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.lastMove
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.lastTwoMoves
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
 import com.megacrit.cardcrawl.actions.AbstractGameAction
@@ -43,11 +46,36 @@ class SnakePlantNewMove {
         companion object {
             @JvmStatic
             fun Prefix(__instance: SnakePlant, num: Int): SpireReturn<Unit?> {
-                if (num < 30) {
-                    __instance.setMove(POISON_STRIKE, AbstractMonster.Intent.ATTACK_DEBUFF, __instance.damage[1].base)
+                if (AbstractDungeon.ascensionLevel >= 17) {
+                    if (__instance.isFirstMove()) {
+                        if (num < 65) {
+                            __instance.setMove(1, AbstractMonster.Intent.ATTACK, __instance.damage[0].base, 3, true)
+                        } else {
+                            __instance.setMove(SnakePlant.MOVES[0], 2, AbstractMonster.Intent.STRONG_DEBUFF)
+                        }
+                    } else if (__instance.lastMove(1)) { // was Chomp
+                        doPoisonStrike(__instance)
+                    } else if (__instance.lastMove(POISON_STRIKE)) { // was Poison Strike (new)
+                        __instance.setMove(SnakePlant.MOVES[0], 2, AbstractMonster.Intent.STRONG_DEBUFF)
+                    } else if (__instance.lastMove(2)) { // was Enfeebling Spores
+                        __instance.setMove(1, AbstractMonster.Intent.ATTACK, __instance.damage[0].base, 3, true)
+                    }
                     return SpireReturn.Return(null)
+                } else {
+                    if (num < 30 && !__instance.lastTwoMoves(POISON_STRIKE)) {
+                        doPoisonStrike(__instance)
+                        return SpireReturn.Return(null)
+                    }
                 }
                 return SpireReturn.Continue()
+            }
+
+            private fun doPoisonStrike(__instance: SnakePlant) {
+                __instance.setMove(
+                    POISON_STRIKE,
+                    AbstractMonster.Intent.ATTACK_DEBUFF,
+                    __instance.damage[1].base
+                )
             }
         }
     }
