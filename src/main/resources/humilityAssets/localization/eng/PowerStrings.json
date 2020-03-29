@@ -45,5 +45,11 @@
     "DESCRIPTIONS": [
       "Whenever you play #b%d cards, gains #b%d #yStrength."
     ]
+  },
+  "${ModID}:DeathRattle": {
+    "NAME": "Death Rattle",
+    "DESCRIPTIONS": [
+      "On death, shuffles #b%d #yDazed into your draw pile."
+    ]
   }
 }
