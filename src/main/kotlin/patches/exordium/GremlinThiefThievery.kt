@@ -3,11 +3,16 @@ package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 import com.evacipated.cardcrawl.mod.humilty.patches.utils.addPreBattleAction
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.DamageAction
+import com.megacrit.cardcrawl.actions.common.EscapeAction
+import com.megacrit.cardcrawl.actions.common.SetMoveAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.exordium.GremlinThief
 import com.megacrit.cardcrawl.powers.ThieveryPower
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect
 import javassist.CtBehavior
 import javassist.expr.ExprEditor
 import javassist.expr.NewExpr
@@ -22,6 +27,8 @@ class GremlinThiefThievery {
         companion object {
             @JvmField
             val stolenGold: SpireField<Int> = SpireField { 0 }
+            @JvmField
+            val turnsTaken: SpireField<Int> = SpireField { 0 }
         }
     }
 
@@ -54,6 +61,7 @@ class GremlinThiefThievery {
                 locator = Locator::class
             )
             fun Insert(__instance: GremlinThief) {
+                StolenGoldField.turnsTaken.set(__instance, StolenGoldField.turnsTaken.get(__instance) + 1)
                 AbstractDungeon.actionManager.addToBottom(object : AbstractGameAction() {
                     override fun update() {
                         StolenGoldField.stolenGold.set(__instance, StolenGoldField.stolenGold.get(__instance) + goldToSteal(__instance))
@@ -103,4 +111,26 @@ class GremlinThiefThievery {
             }
         }
     }
+
+    @SpirePatch(
+        clz = GremlinThief::class,
+        method = "takeTurn"
+    )
+    class EscapeWithGold {
+        companion object {
+            @JvmStatic
+            fun Postfix(__instance: GremlinThief) {
+                if (StolenGoldField.turnsTaken.get(__instance) >= 3) {
+                    AbstractDungeon.actionManager.addToBottom(SetMoveAction(__instance, 98, AbstractMonster.Intent.ESCAPE))
+                }
+
+                if (__instance.nextMove == 98.toByte()) {
+                    AbstractDungeon.actionManager.addToBottom(VFXAction(SmokeBombEffect(__instance.hb.cX, __instance.hb.cY)))
+                    AbstractDungeon.actionManager.addToBottom(EscapeAction(__instance))
+                    AbstractDungeon.actionManager.addToBottom(SetMoveAction(__instance, 98, AbstractMonster.Intent.ESCAPE))
+                }
+            }
+        }
+    }
 }
+
