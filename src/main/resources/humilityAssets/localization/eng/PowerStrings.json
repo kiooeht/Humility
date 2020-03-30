@@ -51,5 +51,12 @@
     "DESCRIPTIONS": [
       "On death, shuffles #b%d #yDazed into your draw pile."
     ]
+  },
+  "Hex": {
+    "NAME": "Hex",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, shuffle #b",
+      " #yDazed into your draw pile."
+    ]
   }
 }
