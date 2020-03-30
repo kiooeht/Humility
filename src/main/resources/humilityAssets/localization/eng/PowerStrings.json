@@ -70,5 +70,8 @@
     "DESCRIPTIONS": [
       "At the end of your turn, take #b%d damage, then reduce #yVenom by #b%d."
     ]
+  },
+  "${ModID}:EnergyDownPower": {
+    "NAME": "Energy Down"
   }
 }
