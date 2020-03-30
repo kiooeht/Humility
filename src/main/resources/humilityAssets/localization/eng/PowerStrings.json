@@ -58,5 +58,17 @@
       "Whenever you play a card, shuffle #b",
       " #yDazed into your draw pile."
     ]
+  },
+  "${ModID}:VenomStrikes": {
+    "NAME": "Venom Strikes",
+    "DESCRIPTIONS": [
+      "Whenever you receive attack damage from this enemy, gain #b%d #yVenom."
+    ]
+  },
+  "${ModID}:Venom": {
+    "NAME": "Venom",
+    "DESCRIPTIONS": [
+      "At the end of your turn, take #b%d damage, then reduce #yVenom by #b%d."
+    ]
   }
 }
