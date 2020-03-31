@@ -7,7 +7,7 @@
     <name>Humility</name>
     <groupId>com.evacipated.cardcrawl.mod</groupId>
     <artifactId>humility</artifactId>
-    <version>0.1</version>
+    <version>1.0</version>
 
     <properties>
         <ModID>humility</ModID>
