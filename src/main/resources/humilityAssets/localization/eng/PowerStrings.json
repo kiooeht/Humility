@@ -73,5 +73,11 @@
   },
   "${ModID}:EnergyDownPower": {
     "NAME": "Energy Down"
+  },
+  "${ModID}:SemiIntangible": {
+    "NAME": "Semi-Intangible",
+    "DESCRIPTIONS": [
+      "Reduce ALL damage taken and HP loss by #b%d this turn. #ySemi-Intangible is reapplied every other turn."
+    ]
   }
 }
