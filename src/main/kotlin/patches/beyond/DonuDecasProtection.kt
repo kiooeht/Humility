@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.beyond
 
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.addEscape
 import com.evacipated.cardcrawl.mod.humilty.powers.DecasProtectionPower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.beyond.Deca
 import com.megacrit.cardcrawl.monsters.beyond.Donu
+import javassist.CtBehavior
 
 class DonuDecasProtection {
     @SpirePatch(
@@ -48,6 +50,19 @@ class DonuDecasProtection {
                             RemoveSpecificPowerAction(it, __instance, DecasProtectionPower.POWER_ID)
                         )
                     }
+            }
+        }
+    }
+
+    @SpirePatch(
+        clz = Deca::class,
+        method = SpirePatch.CONSTRUCTOR
+    )
+    class Escape {
+        companion object {
+            @JvmStatic
+            fun Raw(ctBehavior: CtBehavior) {
+                ctBehavior.addEscape((Remove)::Prefix)
             }
         }
     }

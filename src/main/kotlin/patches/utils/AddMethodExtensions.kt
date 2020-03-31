@@ -15,6 +15,14 @@ fun <T : AbstractMonster> CtBehavior.addPreBattleAction(callback: KFunction1<T, 
     )
 }
 
+fun <T : AbstractMonster> CtBehavior.addEscape(callback: KFunction1<T, Unit>) {
+    val method = callback.javaMethod!!
+    this.addToMethod(
+        "escape",
+        "${method.declaringClass.declaringClass.name}.${method.name}(this);"
+    )
+}
+
 fun CtBehavior.addToMethod(methodName: String, src: String) {
     var method = CtNewMethod.delegator(
         declaringClass.superclass.getDeclaredMethod(methodName),

@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.city
 
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.addEscape
 import com.evacipated.cardcrawl.mod.humilty.patches.utils.addPreBattleAction
 import com.evacipated.cardcrawl.mod.humilty.powers.DivineProtectionPower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
@@ -55,6 +56,19 @@ class CenturionDivineProtection {
                             RemoveSpecificPowerAction(it, __instance, DivineProtectionPower.POWER_ID)
                         )
                     }
+            }
+        }
+    }
+
+    @SpirePatch(
+        clz = Healer::class,
+        method = SpirePatch.CONSTRUCTOR
+    )
+    class Escape {
+        companion object {
+            @JvmStatic
+            fun Raw(ctBehavior: CtBehavior) {
+                ctBehavior.addEscape((Remove)::Prefix)
             }
         }
     }
