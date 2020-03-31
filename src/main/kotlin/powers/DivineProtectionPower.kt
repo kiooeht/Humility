@@ -36,7 +36,7 @@ class DivineProtectionPower(
         updateDescription()
     }
 
-    override fun onAttackToChangeDamage(info: DamageInfo?, damageAmount: Int): Int {
+    override fun onAttackedToChangeDamage(info: DamageInfo?, damageAmount: Int): Int {
         var returnAmount = damageAmount
         if (returnAmount > amount) {
             returnAmount = amount
