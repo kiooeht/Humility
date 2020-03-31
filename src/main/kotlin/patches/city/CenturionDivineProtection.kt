@@ -1,6 +1,5 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.city
 
-import com.evacipated.cardcrawl.mod.humilty.HumilityMod
 import com.evacipated.cardcrawl.mod.humilty.patches.utils.addPreBattleAction
 import com.evacipated.cardcrawl.mod.humilty.powers.DivineProtectionPower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
@@ -13,10 +12,6 @@ import com.megacrit.cardcrawl.monsters.city.Healer
 import javassist.CtBehavior
 
 class CenturionDivineProtection {
-    companion object {
-        private val POWER_ID = HumilityMod.makeID("DivineProtection")
-    }
-
     @SpirePatch(
         clz = Healer::class,
         method = SpirePatch.CONSTRUCTOR
@@ -57,7 +52,7 @@ class CenturionDivineProtection {
                     .filterNot { it.isDeadOrEscaped }
                     .forEach {
                         AbstractDungeon.actionManager.addToBottom(
-                            RemoveSpecificPowerAction(it, __instance, POWER_ID)
+                            RemoveSpecificPowerAction(it, __instance, DivineProtectionPower.POWER_ID)
                         )
                     }
             }
