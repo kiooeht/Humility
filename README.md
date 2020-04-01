@@ -84,8 +84,10 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 #### Elites
 * Book of Stabbing
-	* Maximum number of gremlin minions increased to 4
+	* Painful Stabs replaced with Buring Stabs
+	* Burning Stabs is identical to Painful Stabs but adds Burns instead of Wounds
 * Gremlin Leader
+	* Maximum number of gremlin minions increased to 4
 	* Spawns up to 3 gremlins at a time with Rally
 * Taskmaster
 	* Attack is changed to 7 x N, where N = turn / 2 rounded up
