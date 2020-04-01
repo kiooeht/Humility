@@ -111,6 +111,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 	* Starts with 2 Strength
 * Orb Walker
 	* Starts with 2 Artifact
+	* Gives player upgraded Burns
 * Shapes (Exploder)
 	* Starts with -1 turn on Explode
 * Shapes (Repulsor)
