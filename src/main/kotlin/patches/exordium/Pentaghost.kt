@@ -3,6 +3,8 @@ package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.helpers.MonsterHelper
+import com.megacrit.cardcrawl.localization.MonsterStrings
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost
 import com.megacrit.cardcrawl.monsters.exordium.HexaghostOrb
 import javassist.CodeConverter
@@ -15,6 +17,26 @@ import javassist.bytecode.Opcode
 import javassist.convert.Transformer
 
 class Pentaghost {
+    companion object {
+        private val strings: MonsterStrings by lazy { CardCrawlGame.languagePack.getMonsterStrings(HumilityMod.makeID(Hexaghost.ID)) }
+    }
+
+    @SpirePatch(
+        clz = MonsterHelper::class,
+        method = "getEncounterName"
+    )
+    class ChangeEncounterNameForMinty {
+        companion object {
+            @JvmStatic
+            fun Postfix(__result: String, key: String): String {
+                if (key == MonsterHelper.HEXAGHOST_ENC) {
+                    return strings.NAME
+                }
+                return __result
+            }
+        }
+    }
+
     @SpirePatch(
         clz = Hexaghost::class,
         method = SpirePatch.CONSTRUCTOR
@@ -23,7 +45,7 @@ class Pentaghost {
         companion object {
             @JvmStatic
             fun Postfix(__instance: Hexaghost, @ByRef ___infernoHits: Array<Int>) {
-                __instance.name = CardCrawlGame.languagePack.getMonsterStrings(HumilityMod.makeID(Hexaghost.ID)).NAME
+                __instance.name = strings.NAME
                 ___infernoHits[0] = 5
             }
         }
