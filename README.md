@@ -59,7 +59,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 #### Normal Enemies
 * Byrds
-	* Start with 1 Strength
+	* No longer stunned when Flight is removed, instead goes straight into Headbutt
 * Centurion and Mystic
 	* Centurion can only take 10 damage per turn while Mystic is alive
 * Chosen
