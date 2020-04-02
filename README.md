@@ -73,8 +73,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 * Snake Plant
 	* New Move:
 		* Attack + Debuff
-		* 12 damage
-		* Applies -3 Strength and 3 Shackled to player
+		* 17 damage
+		* Applies -3 Strength and 2 Shackled to player
 * Snecko
 	* Starts with 1 Snecko Bot
 	* Snecko Bot:

@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower
 class SnakePlantNewMove {
     companion object {
         private const val POISON_STRIKE: Byte = 3
-        private const val DAMAGE = 12
+        private const val DAMAGE = 17
         private const val STR_DOWN = 3
     }
 
@@ -110,8 +110,8 @@ class SnakePlantNewMove {
                             ApplyPowerAction(
                                 AbstractDungeon.player,
                                 __instance,
-                                GainStrengthPower(AbstractDungeon.player, STR_DOWN),
-                                STR_DOWN,
+                                GainStrengthPower(AbstractDungeon.player, STR_DOWN - 1),
+                                STR_DOWN - 1,
                                 true,
                                 AbstractGameAction.AttackEffect.NONE
                             )
