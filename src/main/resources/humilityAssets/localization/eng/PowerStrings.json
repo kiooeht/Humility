@@ -49,7 +49,7 @@
   "${ModID}:DeathRattle": {
     "NAME": "Death Rattle",
     "DESCRIPTIONS": [
-      "On death, shuffles #b%d #yDazed into your draw pile."
+      "On death, puts #b%d #yDazed on top of your draw pile."
     ]
   },
   "Hex": {

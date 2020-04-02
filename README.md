@@ -121,7 +121,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 * Shapes (Exploder)
 	* Starts with -1 turn on Explode
 * Shapes (Repulsor)
-	* On death, shuffles 2 Dazed into the draw pile
+	* On death, puts 2 Dazed on top of the draw pile
 * Shapes (Spiker
 	* Gives ALL monsters 2 Thorns when buffing
 * Spire Growth

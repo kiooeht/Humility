@@ -25,6 +25,6 @@ class DeathRattlePower(
 
     override fun onDeath() {
         flashWithoutSound()
-        addToTop(MakeTempCardInDrawPileAction(Dazed(), amount, true, true))
+        addToTop(MakeTempCardInDrawPileAction(Dazed(), amount, false, true))
     }
 }
