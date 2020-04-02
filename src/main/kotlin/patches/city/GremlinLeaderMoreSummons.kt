@@ -58,7 +58,7 @@ class GremlinLeaderMoreSummons {
             fun Postfix(__result: MonsterGroup, key: String): MonsterGroup {
                 if (key == MonsterHelper.GREMLIN_LEADER_ENC) {
                     val spawnMonster = MonsterHelper::class.java.getDeclaredMethod("spawnGremlin", Float::class.java, Float::class.java).also { it.isAccessible = true }
-                    __result.addMonster(2, spawnMonster.invoke(null, GremlinLeader.POSX[2], GremlinLeader.POSY[2]) as AbstractMonster)
+                    __result.addMonster(0, spawnMonster.invoke(null, GremlinLeader.POSX[2], GremlinLeader.POSY[2]) as AbstractMonster)
                 }
                 return __result
             }
