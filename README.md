@@ -105,6 +105,10 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 ### Beyond
 
+#### Events
+* Mind Bloom
+	* I am War option changed to fight 2 Act 1 Bosses in a row
+
 #### Normal Enemies
 * Darklings
 	* A 4th Darkling is added to the fight

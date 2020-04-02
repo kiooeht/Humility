@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.mod.humilty.helpers.AssetLoader
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.helpers.ImageMaster
+import com.megacrit.cardcrawl.localization.EventStrings
 import com.megacrit.cardcrawl.localization.MonsterStrings
 import com.megacrit.cardcrawl.localization.PowerStrings
 import java.io.IOException
@@ -76,7 +77,7 @@ class HumilityMod :
     private fun loadLocFiles(language: Settings.GameLanguage) {
         loadLocFile(language, MonsterStrings::class.java)
         loadLocFile(language, PowerStrings::class.java)
-        //loadLocFile(language, UIStrings::class.java)
+        loadLocFile(language, EventStrings::class.java)
     }
 
     override fun receiveEditStrings() {
