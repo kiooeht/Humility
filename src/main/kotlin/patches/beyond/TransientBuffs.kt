@@ -2,7 +2,6 @@ package com.evacipated.cardcrawl.mod.humilty.patches.beyond
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
-import com.megacrit.cardcrawl.actions.common.DamageAction
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.beyond.Transient
@@ -44,19 +43,20 @@ class TransientBuffs {
 
     @SpirePatch(
         clz = Transient::class,
-        method = "takeTurn"
+        method = SpirePatch.CONSTRUCTOR
     )
     class FixExtraFadingAttacks {
         companion object {
             @JvmStatic
-            fun Instrument(): ExprEditor =
-                object : ExprEditor() {
-                    override fun edit(e: NewExpr) {
-                        if (e.className == DamageAction::class.qualifiedName) {
-                            e.replace("\$_ = \$proceed(\$1, new ${DamageInfo::class.qualifiedName}(this, startingDeathDmg + count * 10), \$3);")
-                        }
-                    }
-                }
+            fun Postfix(__instance: Transient, ___startingDeathDmg: Int) {
+                __instance.damage.clear()
+                __instance.damage.addAll(
+                    generateSequence(___startingDeathDmg) { it + 10 }
+                        .map { DamageInfo(__instance, it) }
+                        .take(10) // can last 10 turns
+                        .toList()
+                )
+            }
         }
     }
 }
