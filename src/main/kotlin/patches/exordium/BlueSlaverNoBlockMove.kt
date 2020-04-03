@@ -1,7 +1,7 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
-import com.evacipated.cardcrawl.modthespire.lib.SpireField
+import com.evacipated.cardcrawl.mod.humilty.patches.utils.lastMove
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
 import com.megacrit.cardcrawl.actions.animations.VFXAction
@@ -21,17 +21,6 @@ class BlueSlaverNoBlockMove {
 
     @SpirePatch(
         clz = SlaverBlue::class,
-        method = SpirePatch.CLASS
-    )
-    class Fields {
-        companion object {
-            @JvmField
-            val usedEntangle: SpireField<Boolean> = SpireField { false }
-        }
-    }
-
-    @SpirePatch(
-        clz = SlaverBlue::class,
         method = "getMove"
     )
     class GetMove {
@@ -40,7 +29,7 @@ class BlueSlaverNoBlockMove {
 
             @JvmStatic
             fun Prefix(__instance: SlaverBlue, num: Int): SpireReturn<Unit?> {
-                if (num >= 75 && !Fields.usedEntangle.get(__instance)) {
+                if (num >= 75 && !__instance.lastMove(TRIP)) {
                     if (TRIP_NAME == null) {
                         val strings = CardCrawlGame.languagePack.getMonsterStrings(HumilityMod.makeID(SlaverBlue.ID))
                         TRIP_NAME = strings?.MOVES?.get(0)
@@ -72,7 +61,6 @@ class BlueSlaverNoBlockMove {
                         ))
                     }
                     AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(AbstractDungeon.player, __instance, NoBlockPower(AbstractDungeon.player, 1, true), 1))
-                    Fields.usedEntangle.set(__instance, true)
                 }
             }
         }

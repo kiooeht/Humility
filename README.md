@@ -31,6 +31,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 	* New Move: Trip
 		* Big Debuff
 		* Applies No block to player
+		* Can be used multiple times (but not two turns in a row)
 * Slaver (Red)
 	* Can use Entangle multiple times (but not two turns in a row)
 	* Cannot use Entangle on the same turn Blue Slaver uses Trip (see above)
