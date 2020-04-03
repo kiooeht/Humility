@@ -2,7 +2,6 @@ package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.AbstractGameAction
-import com.megacrit.cardcrawl.actions.common.SetMoveAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.exordium.TheGuardian
@@ -29,7 +28,8 @@ class GuardianSkipCycle {
                     it.isAccessible = true
                     it.invoke(__instance)
                 }
-                AbstractDungeon.actionManager.addToBottom(SetMoveAction(__instance, ___TWINSLAM_NAME, 4, AbstractMonster.Intent.ATTACK_BUFF, ___twinSlamDamage, 2, true))
+                __instance.setMove(___TWINSLAM_NAME, 4, AbstractMonster.Intent.ATTACK_BUFF, ___twinSlamDamage, 2, true)
+                __instance.createIntent()
             }
         }
     }
