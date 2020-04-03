@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster
 import com.megacrit.cardcrawl.localization.EventStrings
 import com.megacrit.cardcrawl.localization.MonsterStrings
 import com.megacrit.cardcrawl.localization.PowerStrings
+import com.megacrit.cardcrawl.localization.UIStrings
 import java.io.IOException
 import java.util.*
 
@@ -78,6 +79,7 @@ class HumilityMod :
         loadLocFile(language, MonsterStrings::class.java)
         loadLocFile(language, PowerStrings::class.java)
         loadLocFile(language, EventStrings::class.java)
+        loadLocFile(language, UIStrings::class.java)
     }
 
     override fun receiveEditStrings() {
