@@ -85,5 +85,11 @@
     "DESCRIPTIONS": [
       "Receives #b%d%% less damage. Removed when %s dies."
     ]
+  },
+  "${ModID}:SlimeCoating": {
+    "NAME": "Slime Coating",
+    "DESCRIPTIONS": [
+      "Upon receiving attack damage, adds #b%d #ySlimed into your discard pile."
+    ]
   }
 }
