@@ -32,6 +32,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 		* Big Debuff
 		* Applies No block to player
 * Slaver (Red)
+	* Can use Entangle multiple times (but not two turns in a row)
 	* Cannot use Entangle on the same turn Blue Slaver uses Trip (see above)
 * Slime (Medium/Small Acid/Spike)
 	* Starts with 1 Slime Coating
