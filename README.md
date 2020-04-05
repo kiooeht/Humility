@@ -63,6 +63,10 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 ### City
 
+#### Events
+* The Colosseum
+	* Second fight changed to double Gremlin Nob instead of Taskmaster + Gremlin Nob
+
 #### Normal Enemies
 * Byrds
 	* No longer stunned when Flight is removed, instead goes straight into Headbutt
