@@ -67,6 +67,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 * The Colosseum
 	* Second fight changed to double Gremlin Nob instead of Taskmaster + Gremlin Nob
 * Masked Bandits
+	* Pointy
+		* Starts with 2 Thorns
 	* Romeo
 		* Mock changed to Debuff, applies 5 Weak to player
 	* Bear
