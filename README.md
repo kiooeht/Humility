@@ -69,6 +69,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 * Masked Bandits
 	* Romeo
 		* Mock changed to Debuff, applies 5 Weak to player
+	* Bear
+		* Bear Hug also applies 2 Frail (before the negative Dexterity)
 
 #### Normal Enemies
 * Byrds
