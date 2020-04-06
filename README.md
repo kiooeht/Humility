@@ -4,6 +4,10 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 ### Exordium
 
+#### Events
+* Dead Adventurer
+	* No longer gives a hint at which Elite the player might fight
+
 #### Normal Enemies
 * Cultist
 	* Attack also adds a Void into the discard pile
