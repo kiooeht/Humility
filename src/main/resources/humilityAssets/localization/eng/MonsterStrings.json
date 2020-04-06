@@ -8,5 +8,10 @@
     "MOVES": [
       "Trip"
     ]
+  },
+  "${ModID}:BanditBear": {
+    "DIALOG": [
+      "~ROMEOOOOOOOO!!!!~"
+    ]
   }
 }

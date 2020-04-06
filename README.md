@@ -75,6 +75,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 		* When Bear dies, gains 1 Enrage
 	* Bear
 		* Bear Hug also applies 2 Frail (before the negative Dexterity)
+		* When Romeo dies, gains 2 Enrage and 2 Strength
 
 #### Normal Enemies
 * Byrds
