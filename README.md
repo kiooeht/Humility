@@ -50,8 +50,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 #### Elites
 * Gremlin Nob
-	* Starts with Crushing Blow
-	* Crushing Blow is identical to Painful Stabs
+	* Summons 2 gremlin minions on turn 1
 * Lagavulin
 	* Wakes up at the end of turn 1 instead of turn 3
 * Sentries

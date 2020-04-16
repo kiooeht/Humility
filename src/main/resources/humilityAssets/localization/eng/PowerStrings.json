@@ -20,12 +20,6 @@
       "Whenever you receive attack damage from this enemy, add a #yBurn into your discard pile."
     ]
   },
-  "${ModID}:CrushingBlows": {
-    "NAME": "Crushing Blows",
-    "DESCRIPTIONS": [
-      "Whenever you receive attack damage from this enemy, add a #yWound into your discard pile."
-    ]
-  },
   "${ModID}:SneckoBot": {
     "NAME": "Snecko Bot",
     "DESCRIPTIONS": [
