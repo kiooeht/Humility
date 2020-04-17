@@ -52,7 +52,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 * Gremlin Nob
 	* Summons 2 gremlin minions on turn 1
 * Lagavulin
-	* Wakes up at the end of turn 1 instead of turn 3
+	* Starts with 3 Demon Form
+	* Removes Demon Form when waking up
 * Sentries
 	* A 4th Sentry is added to the fight
 

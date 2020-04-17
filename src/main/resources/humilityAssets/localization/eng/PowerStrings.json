@@ -85,5 +85,11 @@
     "DESCRIPTIONS": [
       "Upon receiving attack damage, adds #b%d #ySlimed into your discard pile."
     ]
+  },
+  "${ModID}:DemonFormMonster": {
+    "NAME": "Demon Form",
+    "DESCRIPTIONS": [
+      "At the start of its turn, gains #b%d #yStrength."
+    ]
   }
 }
