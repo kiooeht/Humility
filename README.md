@@ -2,10 +2,6 @@
 Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire while avoiding simple number buffs like increased HP or damage.
 ## Changelist
 
-### General
-* Resting
-	* Heal reduced from 30% to 25% of Max HP
-
 ### Exordium
 
 #### Events
