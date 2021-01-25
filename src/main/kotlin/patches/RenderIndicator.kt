@@ -12,7 +12,7 @@ import javassist.expr.MethodCall
 
 class RenderIndicator {
     companion object {
-        private const val COLOR = "#fc8403"
+        public const val COLOR = "#fc8403"
     }
 
     @SpirePatch(
