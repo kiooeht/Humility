@@ -1,9 +1,12 @@
 package com.evacipated.cardcrawl.mod.humilty.powers
 
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.monsters.beyond.Nemesis
 import kotlin.math.max
 
 class SemiIntangiblePower(
@@ -27,9 +30,9 @@ class SemiIntangiblePower(
         description = DESCRIPTIONS[0].format(amount)
     }
 
-    override fun atDamageFinalReceive(damage: Float, type: DamageInfo.DamageType): Float {
+    /*override fun atDamageFinalReceive(damage: Float, type: DamageInfo.DamageType): Float {
         return max(0f, damage - amount)
-    }
+    }*/
 
     override fun atEndOfTurn(isPlayer: Boolean) {
         if (justApplied) {
@@ -39,5 +42,19 @@ class SemiIntangiblePower(
 
         flash()
         addToBot(RemoveSpecificPowerAction(owner, owner, this))
+    }
+
+    @SpirePatch(
+        clz = Nemesis::class,
+        method = "damage"
+    )
+    object Patch {
+        @JvmStatic
+        fun Prefix(__instance: AbstractMonster, info: DamageInfo) {
+            __instance.getPower(POWER_ID)?.let {
+                info.output -= it.amount
+                info.output = max(info.output, 0)
+            }
+        }
     }
 }
