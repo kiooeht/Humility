@@ -3,9 +3,11 @@ package com.evacipated.cardcrawl.mod.humilty.patches.exordium
 import basemod.ReflectionHacks
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatches
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
 import com.megacrit.cardcrawl.actions.common.SetMoveAction
 import com.megacrit.cardcrawl.actions.utility.TextAboveCreatureAction
 import com.megacrit.cardcrawl.cards.DamageInfo
+import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.exordium.AcidSlime_L
@@ -65,6 +67,25 @@ class SlimeSplitThreshold {
                 if (__instance is AcidSlime_L) {
                     ReflectionHacks.setPrivate(__instance, AcidSlime_L::class.java, "splitTriggered", value)
                 }
+            }
+        }
+    }
+
+    @SpirePatch(
+        cls = "mintySpire.patches.monsters.HalfwayHealthbarTextPatch\$TextRender",
+        method = "getHPTextAddition",
+        optional = true
+    )
+    class MintySpireCompat {
+        companion object {
+            @JvmStatic
+            fun Prefix(c: AbstractCreature): SpireReturn<String> {
+                if (!(c.isDead || c.isDying)) {
+                    if (SlimeBoss.ID == c.id) {
+                        return SpireReturn.Return(" (${(c.maxHealth * 0.75f).toInt()})")
+                    }
+                }
+                return SpireReturn.Continue()
             }
         }
     }
