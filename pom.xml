@@ -12,7 +12,7 @@
     <properties>
         <ModID>humility</ModID>
         <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.18.0</ModTheSpire.version>
+        <ModTheSpire.version>3.20.0</ModTheSpire.version>
 
         <kotlin.version>1.4.10</kotlin.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
