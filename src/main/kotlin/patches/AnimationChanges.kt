@@ -4,6 +4,7 @@ import com.esotericsoftware.spine.Skeleton
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.monsters.city.BookOfStabbing
 import com.megacrit.cardcrawl.monsters.city.Champ
 import com.megacrit.cardcrawl.monsters.exordium.*
 import javassist.CtBehavior
@@ -19,10 +20,12 @@ class AnimationChanges {
             GremlinThief::class to listOf("root" to 0.7f, "weapon" to 1f / 0.7f),
             GremlinNob::class to listOf("weapon" to 1.4f),
             Champ::class to listOf("Arm_L_3" to 2f),
+            BookOfStabbing::class to listOf("spine9" to 1.1f,"spine10" to 1.1f, "spine11" to 1.1f),
         )
 
         private val disableData = mapOf<KClass<*>, List<String>>(
             Champ::class to listOf("shield", "handle"),
+            BookOfStabbing::class to listOf("hilt", "emp", "blade"),
         )
     }
 

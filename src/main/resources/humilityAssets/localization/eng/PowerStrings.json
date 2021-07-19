@@ -14,10 +14,10 @@
       "'s current HP."
     ]
   },
-  "${ModID}:BurningStabs": {
-    "NAME": "Burning Stabs",
+  "${ModID}:PainfulPunches": {
+    "NAME": "Painful Punches",
     "DESCRIPTIONS": [
-      "Whenever you receive attack damage from this enemy, add a #yBurn into your discard pile."
+      "Whenever you receive attack damage from this enemy, add a #yWound onto the top of your draw pile."
     ]
   },
   "${ModID}:SneckoBot": {

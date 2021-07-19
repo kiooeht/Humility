@@ -13,5 +13,10 @@
     "DIALOG": [
       "~ROMEOOOOOOOO!!!!~"
     ]
+  },
+  "${ModID}:BookOfStabbing": {
+    "NAME": "Book of Punching",
+    "MOVES": [],
+    "DIALOG": []
   }
 }
