@@ -15,6 +15,7 @@ class AnimationChanges {
             Cultist::class to listOf("weaponleft" to 1.6f, "weaponright" to 1.6f),
             GremlinFat::class to listOf("root" to 1.7f, "weapon" to 1f / 1.7f),
             GremlinTsundere::class to listOf("shield" to 1.4f),
+            GremlinWizard::class to listOf("head" to 1.3f),
             GremlinNob::class to listOf("weapon" to 1.4f),
             Champ::class to listOf("Arm_L_3" to 2f),
         )
