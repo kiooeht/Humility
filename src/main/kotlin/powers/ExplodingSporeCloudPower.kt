@@ -68,7 +68,12 @@ class ExplodingSporeCloudPower(
         }
         CardCrawlGame.sound.play("SPORE_CLOUD_RELEASE")
         flashWithoutSound()
-        addToTop(ApplyPowerAction(AbstractDungeon.player, null, VulnerablePower(AbstractDungeon.player, amount, true), amount))
+        val amt = if (amount2 == -1) {
+            amount
+        } else {
+            amount2
+        }
+        addToTop(ApplyPowerAction(AbstractDungeon.player, null, VulnerablePower(AbstractDungeon.player, amt, true), amt))
     }
 
     override fun atEndOfRound() {
