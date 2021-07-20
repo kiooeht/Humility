@@ -139,6 +139,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 #### Normal Enemies
 * Darklings
 	* A 4th Darkling is added to the fight
+* Jaw Worm Horde
+	* Starts with Life Link
 * The Maw
 	* Always uses Slam on turn 2
 	* Starts with 2 Strength
