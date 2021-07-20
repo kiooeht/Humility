@@ -120,6 +120,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 #### Bosses
 * Bronze Automaton
 	* Skips spawn turn, starts combat with Bronze Orbs already spawned
+	* Bronze Orb
+		* Stasis move now steals 2 cards
 * The Champ
 	* Starts with 3 Strength
 	* Cannot use Defensive Stance move
