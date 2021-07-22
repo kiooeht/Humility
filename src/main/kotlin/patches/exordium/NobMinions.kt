@@ -26,6 +26,10 @@ class NobMinions {
                 locator = Locator::class
             )
             fun Insert(__instance: GremlinNob) {
+                if (AbstractDungeon.getMonsters().monsters.size > 1) {
+                    return
+                }
+                
                 for (i in 0 until 2) {
                     AbstractDungeon.actionManager.addToBottom(
                         object : SpawnMonsterAction(
