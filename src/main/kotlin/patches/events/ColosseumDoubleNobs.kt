@@ -18,7 +18,7 @@ class ColosseumDoubleNobs {
                 return SpireReturn.Return(
                     MonsterGroup(
                         arrayOf(
-                            GremlinNob(-270f, 15f, false),
+                            GremlinNob(-270f, 15f),
                             GremlinNob(130f, 0f)
                         )
                     )
