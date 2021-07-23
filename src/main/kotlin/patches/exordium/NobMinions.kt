@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.MonsterHelper
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.exordium.*
 import com.megacrit.cardcrawl.powers.AngerPower
+import com.megacrit.cardcrawl.powers.MinionPower
 import javassist.CtBehavior
 import kotlin.random.asKotlinRandom
 
@@ -29,7 +30,7 @@ class NobMinions {
                 if (AbstractDungeon.getMonsters().monsters.size > 1) {
                     return
                 }
-                
+
                 for (i in 0 until 2) {
                     AbstractDungeon.actionManager.addToBottom(
                         object : SpawnMonsterAction(
@@ -92,6 +93,7 @@ class NobMinions {
             fun die(__instance: GremlinNob) {
                 AbstractDungeon.getMonsters().monsters
                     .filterNot { it.isDeadOrEscaped }
+                    .filter { it.hasPower(MinionPower.POWER_ID) }
                     .forEach {
                         AbstractDungeon.actionManager.addToBottom(EscapeAction(it))
                     }
