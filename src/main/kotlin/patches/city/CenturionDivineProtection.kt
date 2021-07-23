@@ -30,13 +30,15 @@ class CenturionDivineProtection {
             fun doPreBattleAction(healer: Healer) {
                 AbstractDungeon.actionManager.addToBottom(ChangeStateAction(healer, "STAFF_RAISE"))
                 AbstractDungeon.actionManager.addToBottom(WaitAction(0.25f))
-                AbstractDungeon.getMonsters().monsters
-                    .filterNot { it == healer || it.isDeadOrEscaped }
-                    .forEach {
-                        AbstractDungeon.actionManager.addToBottom(
-                            ApplyPowerAction(it, healer, DivineProtectionPower(it, healer, AMT), AMT)
-                        )
-                    }
+                if (AbstractDungeon.getMonsters().monsters.count { it is Healer && !it.isDeadOrEscaped } <= 1) {
+                    AbstractDungeon.getMonsters().monsters
+                        .filterNot { it is Healer || it.isDeadOrEscaped }
+                        .forEach {
+                            AbstractDungeon.actionManager.addToBottom(
+                                ApplyPowerAction(it, healer, DivineProtectionPower(it, healer, AMT), AMT)
+                            )
+                        }
+                }
             }
         }
     }
