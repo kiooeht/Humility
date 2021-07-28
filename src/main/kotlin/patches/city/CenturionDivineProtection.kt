@@ -28,9 +28,9 @@ class CenturionDivineProtection {
 
             @JvmStatic
             fun doPreBattleAction(healer: Healer) {
-                AbstractDungeon.actionManager.addToBottom(ChangeStateAction(healer, "STAFF_RAISE"))
-                AbstractDungeon.actionManager.addToBottom(WaitAction(0.25f))
                 if (AbstractDungeon.getMonsters().monsters.count { it is Healer && !it.isDeadOrEscaped } <= 1) {
+                    AbstractDungeon.actionManager.addToBottom(ChangeStateAction(healer, "STAFF_RAISE"))
+                    AbstractDungeon.actionManager.addToBottom(WaitAction(0.25f))
                     AbstractDungeon.getMonsters().monsters
                         .filterNot { it is Healer || it.isDeadOrEscaped }
                         .forEach {
