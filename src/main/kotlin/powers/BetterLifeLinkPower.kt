@@ -158,8 +158,8 @@ class BetterLifeLinkPower(
         class StopDie {
             companion object {
                 @JvmStatic
-                fun Prefix(): SpireReturn<Void> {
-                    if (AbstractDungeon.getCurrMapNode()?.getRoom()?.cannotLose == true) {
+                fun Prefix(__instance: AbstractMonster): SpireReturn<Void> {
+                    if (AbstractDungeon.getCurrMapNode()?.getRoom()?.cannotLose == true && __instance.hasPower(POWER_ID)) {
                         return SpireReturn.Return()
                     }
                     return SpireReturn.Continue()
