@@ -133,7 +133,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 	* Cannot use Defensive Stance move
 	* Gloat and Anger moves give 1 additional Strength
 * The Collector
-	* Maximum number of Torch Heads increased o 3
+	* Maximum number of Torch Heads increased to 3
 	* Spawns up to 3 Torch Heads at a time
 
 ### Beyond
