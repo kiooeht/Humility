@@ -49,9 +49,9 @@ class AwakenedOneWokeBloke {
                     AbstractDungeon.actionManager.addToBottom(CannotLoseAction())
                 } else if (key == SECOND_REBIRTH) {
                     __instance.maxHealth = if (AbstractDungeon.ascensionLevel >= 9) {
-                        170
+                        220
                     } else {
-                        150
+                        200
                     }
                     AbstractDungeon.player.getBlight(Shield.ID)?.let {
                         __instance.maxHealth = (__instance.maxHealth * it.effectFloat()).toInt()

@@ -183,7 +183,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 #### Bosses
 * Awakened One
 	* Added a third phase:
-		* 150 Max HP (170 on Asc 9+)
+		* 200 Max HP (220 on Asc 9+)
 		* Gains 10 Ritual
 * Donu and Deca
 	* Now have a single, shared health pool
