@@ -23,6 +23,9 @@ class AnimationChanges {
             BookOfStabbing::class to listOf("spine9" to 1.1f,"spine10" to 1.1f, "spine11" to 1.1f),
         )
 
+        private val rotationData = mapOf<KClass<*>, List<Pair<String, Float>>>(
+        )
+
         private val disableData = mapOf<KClass<*>, List<String>>(
             Champ::class to listOf("shield", "handle"),
             BookOfStabbing::class to listOf("hilt", "emp", "blade"),
@@ -33,7 +36,7 @@ class AnimationChanges {
         clz = AbstractMonster::class,
         method = "render"
     )
-    class Scale {
+    class Transform {
         companion object {
             @JvmStatic
             @SpireInsertPatch(
@@ -42,6 +45,11 @@ class AnimationChanges {
             fun Insert(__instance: AbstractMonster, ___skeleton: Skeleton) {
                 scaleData[__instance.javaClass.kotlin]?.forEach {
                     ___skeleton.findBone(it.first)?.setScale(it.second)
+                }
+                rotationData[__instance.javaClass.kotlin]?.forEach {
+                    ___skeleton.findBone(it.first)?.let { bone ->
+                        bone.rotation += it.second
+                    }
                 }
             }
         }
