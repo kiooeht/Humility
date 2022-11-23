@@ -4,6 +4,7 @@ import com.esotericsoftware.spine.Skeleton
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.monsters.beyond.Donu
 import com.megacrit.cardcrawl.monsters.city.BookOfStabbing
 import com.megacrit.cardcrawl.monsters.city.Champ
 import com.megacrit.cardcrawl.monsters.exordium.*
@@ -24,6 +25,7 @@ class AnimationChanges {
         )
 
         private val rotationData = mapOf<KClass<*>, List<Pair<String, Float>>>(
+            Donu::class to listOf("ArmR_1" to -180f, "ArmL_1" to -180f),
         )
 
         private val disableData = mapOf<KClass<*>, List<String>>(
