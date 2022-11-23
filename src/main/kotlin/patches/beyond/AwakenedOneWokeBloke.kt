@@ -1,5 +1,7 @@
 package com.evacipated.cardcrawl.mod.humilty.patches.beyond
 
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.math.MathUtils
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -15,6 +17,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.helpers.ModHelper
 import com.megacrit.cardcrawl.monsters.beyond.AwakenedOne
 import com.megacrit.cardcrawl.powers.RitualPower
+import com.megacrit.cardcrawl.vfx.AwakenedEyeParticle
 import com.megacrit.cardcrawl.vfx.AwakenedWingParticle
 import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect
 import javassist.CtBehavior
@@ -43,7 +46,7 @@ class AwakenedOneWokeBloke {
     class AddRitual {
         companion object {
             @JvmStatic
-            fun Postfix(__instance: AwakenedOne, key: String) {
+            fun Postfix(__instance: AwakenedOne, key: String, @ByRef ___animateParticles: BooleanArray) {
                 if (key == "REBIRTH") {
                     // Undo the CanLoseAction on rebirth
                     AbstractDungeon.actionManager.addToBottom(CannotLoseAction())
@@ -61,8 +64,9 @@ class AwakenedOneWokeBloke {
                         __instance.currentHealth = (__instance.currentHealth * 1.5f).toInt()
                     }
 
-                    //__instance.state.setAnimation(0, "Idle_2", true)
+                    __instance.state.setAnimation(0, "Idle_2", true)
                     __instance.halfDead = false
+                    ___animateParticles[0] = true
 
                     AbstractDungeon.actionManager.addToBottom(HealAction(__instance, __instance, __instance.maxHealth))
                     AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(__instance, __instance, RitualPower(__instance, RITUAL, false), RITUAL))
@@ -112,9 +116,11 @@ class AwakenedOneWokeBloke {
             @SpireInsertPatch(
                 locator = Locator::class
             )
-            fun Insert(__instance: AwakenedOne, info: DamageInfo, ___form1: Boolean) {
+            fun Insert(__instance: AwakenedOne, info: DamageInfo, ___form1: Boolean, @ByRef ___animateParticles: BooleanArray) {
                 if (!___form1) {
                     Fields.trueForm.set(__instance, true)
+                    ___animateParticles[0] = false
+                    __instance.state.setAnimation(0, "Idle_1", true)
                 }
             }
         }
@@ -149,6 +155,27 @@ class AwakenedOneWokeBloke {
             override fun Locate(ctBehavior: CtBehavior?): IntArray {
                 val finalMatcher = Matcher.NewExprMatcher(AwakenedWingParticle::class.java)
                 return LineFinder.findInOrder(ctBehavior, finalMatcher)
+            }
+        }
+    }
+
+    @SpirePatch2(
+        clz = AwakenedEyeParticle::class,
+        method = SpirePatch.CONSTRUCTOR
+    )
+    class RedEyes {
+        companion object {
+            @JvmStatic
+            fun Postfix(@ByRef ___color: Array<Color>) {
+                val wokeBloke = AbstractDungeon.getCurrMapNode()?.getRoom()?.monsters?.monsters?.firstOrNull { it is AwakenedOne }
+                if (wokeBloke != null && Fields.trueForm.get(wokeBloke)) {
+                    ___color[0] = Color(
+                        MathUtils.random(0.8f, 1f),
+                        MathUtils.random(0f, 0.2f),
+                        MathUtils.random(0f, 0.2f),
+                        0.01f
+                    )
+                }
             }
         }
     }
