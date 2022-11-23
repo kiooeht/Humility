@@ -182,15 +182,18 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 #### Bosses
 * Awakened One
-	* Added a third phase:
-		* 200 Max HP (220 on Asc 9+)
-		* Gains 10 Ritual
+    * Added a third phase:
+        * 200 Max HP (220 on Asc 9+)
+        * Gains 10 Ritual
 * Donu and Deca
-	* Now have a single, shared health pool
+    * Now have a single, shared health pool
 * Time Eater
-	* Starts with Double Time
-	* Double Time:
-		* Whenever you play 6 cards, gains 1 Strength
+    * Starts with Real Time
+    * Real Time:
+        * Every 30 seconds, gains 1 Strength
+    * An accessibility option exists in the config menu to replace Real Time with Double Time
+    * Double Time:
+        * Whenever you play 6 cards, gains 1 Strength
 
 ### Ending
 
