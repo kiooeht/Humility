@@ -186,7 +186,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 		* 150 Max HP (170 on Asc 9+)
 		* Gains 10 Ritual
 * Donu and Deca
-	* Donu receives 50% less damage while Deca is alive
+	* Now have a single, shared health pool
 * Time Eater
 	* Starts with Double Time
 	* Double Time:

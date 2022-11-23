@@ -74,12 +74,6 @@
       "Reduce ALL damage taken and HP loss by #b%d this turn. #ySemi-Intangible is reapplied every other turn."
     ]
   },
-  "${ModID}:DecasProtection": {
-    "NAME": "Deca's Protection",
-    "DESCRIPTIONS": [
-      "Receives #b%d%% less damage. Removed when %s dies."
-    ]
-  },
   "${ModID}:SlimeCoating": {
     "NAME": "Slime Coating",
     "DESCRIPTIONS": [
@@ -90,6 +84,12 @@
     "NAME": "Demon Form",
     "DESCRIPTIONS": [
       "At the start of its turn, gains #b%d #yStrength."
+    ]
+  },
+  "${ModID}:FatedShapes": {
+    "NAME": "Fated Shapes",
+    "DESCRIPTIONS": [
+      "%1$s and %2$s have shared HP."
     ]
   }
 }
