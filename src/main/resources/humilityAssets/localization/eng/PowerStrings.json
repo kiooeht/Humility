@@ -75,9 +75,9 @@
     ]
   },
   "${ModID}:SlimeCoating": {
-    "NAME": "Slime Coating",
+    "NAME": "Extra Slimy",
     "DESCRIPTIONS": [
-      "Upon receiving attack damage, adds #b%d #ySlimed into your discard pile."
+      "At the end of its turn, adds #b%d #ySlimed into your discard pile."
     ]
   },
   "${ModID}:DemonFormMonster": {

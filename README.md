@@ -44,10 +44,12 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 * Slaver (Red)
 	* Can use Entangle multiple times (but not two turns in a row)
 	* Cannot use Entangle on the same turn Blue Slaver uses Trip (see above)
-* Slime (Medium/Small Acid/Spike)
-	* Starts with 1 Slime Coating
+* Slime (Small Acid/Spike)
+	* Starts with 1 Extra Slimy
 	* Slime Coating:
-		* Upon receiving attack damage, adds X Slimed into your discard pile.
+		* At the end of its turn, adds X Slimed into your discard pile.
+* Slime (Medium Acid/Spike)
+	* Starts with 2 Extra Slimy
 
 #### Elites
 * Gremlin Nob

@@ -41,7 +41,12 @@ class SlimesCoating {
 
             @JvmStatic
             fun doPreBattleAction(__instance: AbstractMonster) {
-                AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(__instance, __instance, SlimeCoatingPower(__instance, 1), 1))
+                val amount = if (__instance is AcidSlime_M || __instance is SpikeSlime_M) {
+                    2
+                } else {
+                    1
+                }
+                AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(__instance, __instance, SlimeCoatingPower(__instance, amount)))
             }
         }
     }

@@ -1,8 +1,8 @@
 package com.evacipated.cardcrawl.mod.humilty.powers
 
 import com.evacipated.cardcrawl.mod.humilty.HumilityMod
+import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction
-import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.cards.status.Slimed
 import com.megacrit.cardcrawl.core.AbstractCreature
 
@@ -24,11 +24,13 @@ class SlimeCoatingPower(
         description = DESCRIPTIONS[0].format(amount)
     }
 
-    override fun onAttacked(info: DamageInfo?, damageAmount: Int): Int {
-        if (info?.owner != null && damageAmount > 0 && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS) {
-            flash()
-            addToTop(MakeTempCardInDiscardAction(Slimed(), amount))
-        }
-        return damageAmount
+    override fun duringTurn() {
+        addToBot(object : AbstractGameAction() {
+            override fun update() {
+                flashWithoutSound()
+                isDone = true
+            }
+        })
+        addToBot(MakeTempCardInDiscardAction(Slimed(), amount))
     }
 }
