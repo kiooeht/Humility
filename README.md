@@ -3,9 +3,9 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 ## Changelist
 
 ### General
-* Vulnerable has been changed so that if the player if afflicted with it during the monsters' turn, monsters that act that turn will no longer suddenly deal increased damage.
+* Vulnerable has been changed so that if the player is afflicted with it during the monsters' turn, monsters that act that turn will no longer suddenly deal increased damage.
 	* This allows monsters that are not the last to act in a turn to apply Vulnerable without affecting the damage of monsters that act after them.
-	* Note: This means Fungi Beast will no longer alter damage if it does during the monsters' turn from effects like Thorns or Lightning Orbs.
+	* Note: This means Fungi Beast will no longer alter damage if it dies during the monsters' turn from effects like Thorns or Lightning Orbs.
 
 ### Exordium
 
@@ -162,7 +162,7 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 	* Starts with -1 turn on Explode
 * Shapes (Repulsor)
 	* On death, puts 2 Dazed on top of the draw pile
-* Shapes (Spiker
+* Shapes (Spiker)
 	* Gives ALL monsters 2 Thorns when buffing
 * Spire Growth
 	* Constrict move (Big Debuff) changed to also deal damage equal to Quick Tackle
