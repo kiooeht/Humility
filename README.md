@@ -62,7 +62,8 @@ Humility is a difficulty mod that buffs (almost) every enemy in Slay the Spire w
 
 #### Bosses
 * The Guardian
-	* Skips first Offensive-Defensive cycle, starting combat in Defensive Mode about to perform Twin Slam
+    * Skips first Offensive-Defensive cycle, starting combat in Defensive Mode about to perform Twin Slam
+    * Has Barricade while in Defensive Mode
 * Hexaghost
 	* Name changed to Pentaghost
 	* Skips turn 1 Activate, starts combat using Divider
