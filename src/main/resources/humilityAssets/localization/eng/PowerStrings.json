@@ -91,11 +91,5 @@
     "DESCRIPTIONS": [
       "%1$s and %2$s have shared HP."
     ]
-  },
-  "${ModID}:RealTime": {
-    "NAME": "Real Time",
-    "DESCRIPTIONS": [
-      "Every #b%1$d seconds, gains #b%2$d #yStrength."
-    ]
   }
 }

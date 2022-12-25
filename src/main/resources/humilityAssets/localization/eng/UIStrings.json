@@ -3,11 +3,5 @@
     "TEXT": [
       "Humility: All enemies are buffed in new ways."
     ]
-  },
-  "${ModID}:OptionDisableRealTime": {
-    "TEXT": [
-      "Disable real-time elements",
-      "At least one change made by this mod introduces a real-time element to the gameplay. This option lets you disable those changes, replacing them with other buffs."
-    ]
   }
 }
